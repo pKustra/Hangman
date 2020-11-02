@@ -1,17 +1,20 @@
 using System;
+using System.Collections.Generic;
  
 public class hangman {
     
     public hangman() {
-        lives = 5;    
+        lives = 5;
+        new List<char>(){'h', 'a', 's', 'l', 'o'};
     }
     static public int lives;
+    static public List<char> word;
     
     
-    static public string Word(){
-        string word = "haslo";
+    /*static public List<char> Word(){
+        var word = new List<char>(){'h', 'a', 's', 'l', 'o'};
         return word;
-    }
+    }*/
     
     static public void guessingChoice(string word){
         Console.WriteLine("Would you like to guess letter(l) or whole word(w)?");
@@ -70,13 +73,26 @@ public class hangman {
         return lives;
     }
     
-    static public void display(int lives){
+    static public void display(int lives, List<char> displayed){
         Console.WriteLine($"remaining lives {lives}");
-        Console.WriteLine("_ _ _ _ _");
+        Console.WriteLine(displayed);
+    }
+
+    static public void game(){
+        display(lives, word);
     }
 
     static public void Main () {
-        display(5);
+        Dictionary<string, List<int>> map = new Dictionary<string, List<int>>();
+        map.Add("a", new List<int>(){1});
+        List<int> v = map["a"];
+        v.Add(3);
+        map["a"] = v;
+foreach(int dinosaur in map["a"])
+{
+    Console.WriteLine(dinosaur);
+}
+        game();
         return;
     }
 }
