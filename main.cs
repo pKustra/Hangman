@@ -2,9 +2,32 @@ using System;
  
 public class hangman {
     
-    static public string guessingWord(){
+    static public string Word(){
         string word = "haslo";
         return word;
+    }
+    
+    static public void guessingChoice(){
+        Console.WriteLine("Would you like to guess letter(l) or whole word(w)?");
+        Console.WriteLine("l/w?");
+        string choice = Console.ReadLine();
+        if (choice == "l"){
+            guessingLetter();
+        }
+        else if (choice == "w"){
+            guessingWord();
+        }
+        else{
+            guessingChoice();
+        }
+    }
+    
+    static public void guessingLetter(){
+        
+    }
+    
+    static public void guessingWord(){
+        
     }
     
     static public int lives(string word, string guess){
